@@ -1,0 +1,62 @@
+<settings>
+
+	<offline>false</offline>
+
+	<servers>
+		<server>
+			<id>nexus-user</id>
+			<username>nexus</username>
+			<password>{LFGFPWGIDAIH049ii4Urff4X0vT78aOBn03XmRIswZA=}</password>
+		</server>
+	</servers>
+
+	<mirrors>
+		<mirror>
+			<id>nexus</id>
+			<mirrorOf>*</mirrorOf>
+			<!-- <url>http://devops.ghandalf.com:32280/repository/ghandalf-central/</url> -->
+			<url>http://nexus:32280/repository/ghandalf-central/</url>
+		</mirror>
+	</mirrors>
+
+	<profiles>
+		<profile>
+			<id>nexus</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>ghandalf-central</id>
+					<name>ghandalf-central</name>
+					<url>http://nexus:32280/repository/ghandalf-central</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+
+			<pluginRepositories>
+				<pluginRepository>
+					<id>ghandalf-central</id>
+					<name>ghandalf-central</name>
+					<url>http://nexus:32280/repository/ghandalf-central</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+	
+	<activeProfiles>
+		<activeProfile>nexus</activeProfile>
+	</activeProfiles>
+
+</settings>

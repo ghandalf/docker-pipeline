@@ -1,0 +1,28 @@
+kernel-3.10.0-957.el 7.x86_64.rpm
+
+Jenkins password
+7386d0d587a040f293d245c09e225e10
+
+27ed9e08946745918789dc0f77a9cddf
+27ed9e08946745918789dc0f77a9cddf
+
+6e87c23017b843d4b1337402d73211e4
+
+Gitlab
+ gitlab user access token
+ MqGfzMJ7y9J5juxqznG7
+ feed token
+ BtexX6YiqKSbytRueNZy
+ 
+Gitlab 
+	username: gitlab
+	password: Gitl@b2Cfn@
+	
+Jenkins
+	username: jenkins
+	password: Jenkins2Cfn@
+	
+Nexus
+	username: nexus
+	password: Nexus2Cfn@
+	

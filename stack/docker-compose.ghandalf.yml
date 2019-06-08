@@ -1,0 +1,70 @@
+version: '3.7'
+
+services:
+
+   gitlab:
+     container_name: gitlab
+     image: gitlab/gitlab-ce
+     hostname: gitlab.ghandalf.com
+     ports: ['32180:32180', '32122:22', '32143:443']
+     restart: always
+     volumes:
+      - ./config/gitlab/system/etc/gitlab/gitlab.rb:/etc/gitlab/gitlab.rb
+      - gitlab-conf:/etc/gitlab:rw
+      - gitlab-logs:/var/log/gitlab:rw
+      - gitlab-data:/var/opt/gitlab:rw
+     networks: ['pipeline_net']
+
+   nexus:
+     container_name: nexus
+     image: ghandalf/nexus:${CONTAINERS_VERSION}
+     hostname: nexus.ghandalf.com
+     user: nexus
+     ports: ['32280:32280']
+     restart: always
+     volumes:
+       - nexus-data:/usr/share/nexus/data:rw
+     networks: ['pipeline_net']
+
+   jenkins:
+     container_name: jenkins
+     image: ghandalf/jenkins:${CONTAINERS_VERSION}
+     hostname: jenkins.ghandalf.com
+     user: jenkins
+     ports: ['32380:32380']
+     restart: always
+     volumes:
+       - jenkins-data:/usr/share/jenkins/data:rw
+     depends_on: ['gitlab', 'nexus']
+     networks: ['pipeline_net']
+
+  #  dev:
+  #    container_name: dev
+  #    image: ghandalf/application:${CONTAINERS_VERSION}
+  #    hostname: dev.ghandalf.com
+  #    user: ghandalf
+  #    ports: ['32882:8282']
+  #    environment:
+  #      - env=dev
+  #    restart: always
+  #    volumes:
+  #      - dev-data:/usr/share/application/data
+  #    depends_on: ['nexus']
+  #    networks: ['pipeline_net']
+
+networks: { pipeline_net:{} }
+
+volumes:
+  nexus-data:
+    driver: local
+  jenkins-data:
+    driver: local
+  gitlab-conf:
+    driver: local
+  gitlab-logs:
+    driver: local
+  gitlab-data:
+    driver: local
+  dev-data:
+    driver: local  
+

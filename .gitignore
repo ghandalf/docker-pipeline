@@ -1,0 +1,55 @@
+# We are on a parent project avoid unwanted stuff
+
+# Current project avoid .svn directories
+.svnignore
+.svn
+**/.svn
+# Current project end
+
+# VSCode
+.DS_Store
+**/.DS_Store
+.vscode
+**/.vscode
+
+# Nodejs project
+node/**
+zremoved
+node_modules/**
+**/node_modules
+*.versionsBackup
+**/*.versionsBackup
+.tmp
+**/.tmp
+
+# Git project
+.git
+**/.git
+
+
+# Eclipse tool
+.settings
+**/.settings
+
+.project
+**/.project
+
+**/.factorypath
+
+# IntelliJ
+.idea
+**/.idea
+
+.classpath
+**/.classpath
+
+*.log
+**/*.log
+
+logs
+**/logs
+
+bin
+**/bin
+
+**/test-output
